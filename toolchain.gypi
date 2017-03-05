@@ -10,10 +10,10 @@
       'mac_sdk_min%': '10.10',
 
       # Set ARM architecture version.
-      'arm_version%': 7,
+      'arm_version%': 6,
 
       # Set NEON compilation flags.
-      'arm_neon%': 1,
+      'arm_neon%': 0,
 
       # Abosulte path to source root.
       'source_root%': '<!(node <(DEPTH)/tools/atom_source_root.js)',
@@ -50,7 +50,7 @@
             ['target_arch=="arm"', {
               # sysroot needs to be an absolute path otherwise it generates
               # incorrect results when passed to pkg-config
-              'sysroot%': '<(source_root)/vendor/debian_wheezy_arm-sysroot',
+              'sysroot%': '<(source_root)/vendor/raspian_jessie_pi1-sysroot',
             }],
             ['target_arch=="ia32"', {
               'sysroot%': '<(source_root)/vendor/debian_wheezy_i386-sysroot',
@@ -73,7 +73,7 @@
         'arm_arch%': 'armv6',
         'arm_tune%': '',
         'arm_fpu%': 'vfp',
-        'arm_float_abi%': 'softfp',
+        'arm_float_abi%': 'hard',
         'arm_thumb%': 0,
       }],  # arm_version==6
       ['arm_version==7', {
